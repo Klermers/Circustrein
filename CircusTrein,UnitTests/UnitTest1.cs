@@ -9,11 +9,11 @@ namespace CircusTrein_UnitTests
     public class WagonTest
     {
         [TestMethod]
-        public void CheckCarnivour_animalTypeCarnivour_Returnfalse()
+        public void CheckCarnivour_animalTypeCarnivour_Returntrue()
         {
             //Arange
             Wagon wagon = new Wagon();
-            Animal TestAnimal = new Animal("Lion", 3, "Carnivour");
+            Animal TestAnimal = new Animal("Lion", 3, 2);
             List<Animal> animals = new List<Animal>();
 
             //Act
@@ -21,11 +21,11 @@ namespace CircusTrein_UnitTests
             wagon.Animals = animals;
             var result =  wagon.CheckCarnivour();
             //Assert
-            Assert.IsFalse(result);
+            Assert.IsTrue(result);
 
         }
         [TestMethod]
-        public void CheckCarnivour_animalTypeNoCarnivour_ReturnTrue()
+        public void CheckCarnivour_animalTypeNoCarnivour_Returnfalse()
         {
             //Arange
             Wagon wagon = new Wagon();
@@ -33,7 +33,7 @@ namespace CircusTrein_UnitTests
             //Act
             var result = wagon.CheckCarnivour();
             //Assert
-            Assert.IsTrue(result);
+            Assert.IsFalse(result);
 
         }
         [TestMethod]
@@ -41,11 +41,12 @@ namespace CircusTrein_UnitTests
         {
             //Arange
             Wagon wagon = new Wagon();
-            Animal animal = new Animal("Lion", 3, "Herbivour");
+            Animal animal = new Animal("Lion", 3, 1);
+            Animal animal2 = new Animal("Lion", 1, 1);
             List<Animal> animals = new List<Animal>();
 
             //Act
-            animals.Add(animal);
+            animals.Add(animal2);
             wagon.Animals = animals;
             var result = wagon.CheckSizeHerbivour(animal);
 
@@ -57,8 +58,8 @@ namespace CircusTrein_UnitTests
         {
             //Arange
             Wagon wagon = new Wagon();
-            Animal carnanimal = new Animal("Lion", 1, "Carnivour");
-            Animal animal2 = new Animal("Lion", 3, "Herbivour");
+            Animal carnanimal = new Animal("Lion", 1, 2);
+            Animal animal2 = new Animal("Lion", 3, 1);
             List<Animal> animals = new List<Animal>();
 
             //Act
@@ -74,14 +75,14 @@ namespace CircusTrein_UnitTests
         {
             //Arange
             Wagon wagon = new Wagon();
-            Animal carnanimal = new Animal("Lion", 1, "Carnivour");
-            Animal checkherb = new Animal("Lion", 3, "Herbivour");
+            Animal carnanimal = new Animal("Lion", 1, 2);
+            Animal checkherb = new Animal("Lion", 3, 1);
             List<Animal> animals = new List<Animal>();
 
             //Act
             animals.Add(carnanimal);
             wagon.Animals = animals;
-            var result = wagon.CheckSizeHerbivour(carnanimal);
+            var result = wagon.CheckSizeCarnivour(carnanimal);
 
             //Assert
             Assert.IsFalse(result);
@@ -92,21 +93,39 @@ namespace CircusTrein_UnitTests
         {
             //Arange
             Wagon wagon = new Wagon();
-            Animal carnanimal = new Animal("Lion", 10, "Carnivour");
-            Animal checkherb = new Animal("Lion", 3, "Herbivour");
+            Animal carnanimal = new Animal("Lion", 1, 2);
+            Animal checkherb = new Animal("Lion", 3, 1);
             List<Animal> animals = new List<Animal>();
 
             //Act
             animals.Add(carnanimal);
             wagon.Animals = animals;
-            var result = wagon.CheckSizeHerbivour(checkherb);
+            var result = wagon.CheckSizeCarnivour(checkherb);
 
             //Assert
             Assert.IsTrue(result);
 
         }
         [TestMethod]
-        public void Wagonadd_AnimalsAdd_Returnfalse()
+        public void AddWagonHerbivour_CheckSizeWagon_ReturnTrue()
+        {
+            //Arange
+
+            //Act
+
+            //Assert
+        }
+
+        public void AddWagonHerbivour_CheckSizeWagon_ReturnFalse()
+        {
+            //Arange
+
+            //Act
+
+            //Assert
+        }
+
+        public void AddWagonCarnivour_CheckSizeWagon_ReturnFalse()
         {
             //Arange
 

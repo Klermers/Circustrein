@@ -10,9 +10,9 @@ namespace CircusTrein
     {
         private string name;
         private int size;
-        private string type;
+        private int type;
 
-        public Animal(string name, int size, string type)
+        public Animal(string name, int size, int type)
         {
             this.name = name;
             this.size = size;
@@ -32,7 +32,7 @@ namespace CircusTrein
             set { this.size = value; }
         }
 
-        public string Type
+        public int Type
         {
             get { return this.type; }
             set { this.type = value; }

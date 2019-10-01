@@ -12,6 +12,7 @@ namespace CircusTrein
         private static int Wagoncycle = 1;
         private int Wagonroom = 10;
         private List<Animal> animals = new List<Animal>();
+        public enum Food { Herbivour = 1, Carnivour = 2 }
 
         public Wagon()
         {
@@ -28,19 +29,19 @@ namespace CircusTrein
         {
             foreach(var animal in animals)
             {
-                if(animal.Type == "Carnivour")
+                if(animal.Type == (int)Food.Carnivour)
                 {
-                    return false;
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
 
         public bool CheckSizeHerbivour(Animal checkcarn)
         {
             foreach(var animal in animals)
             {
-                if(checkcarn.Size >= animal.Size)
+                if(animal.Size < checkcarn.Size)
                 {
                     return false;
                 }
@@ -52,64 +53,77 @@ namespace CircusTrein
         {
             foreach(var animal in animals)
             {
-                if(checkherb.Size <= animal.Size)
+                if(animal.Type == (int)Food.Carnivour)
                 {
-                    return false;
+                    if (checkherb.Size <= animal.Size)
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
         }
-        
-        public bool WagonAdd(Animal animalrd)
+
+        public bool AddWagonHerbivore(Animal animalrd)
         {
             if (CheckCarnivour() == true)
             {
-                return false;
+                if (CheckSizeCarnivour(animalrd) == true)
+                {
+                    if (Wagonroom + animalrd.Size <= 10)
+                    {
+                        Wagonroom += animalrd.Size;
+                        Animals.Add(animalrd);
+                        return true;
+                    }
+                }
             }
-            else if (CheckCarnivour() == false)
+            else
             {
-                if(animalrd.Type == "Carnivour")
+                if (Wagonroom + animalrd.Size <= 10)
                 {
-                    if(CheckSizeHerbivour(animalrd) == false)
-                    {
-                        return false;
-                    }
-                    else if(CheckSizeHerbivour(animalrd) == true)
-                    {
-                        if(Wagonroom + animalrd.Size <= 10)
-                        {
-                            Wagonroom += animalrd.Size;
-                            Animals.Add(animalrd);
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
+                    Wagonroom += animalrd.Size;
+                    Animals.Add(animalrd);
+                    return true;
                 }
-                else if(animalrd.Type == "Herbivour")
+            }
+            return false;
+        }
+
+        public bool AddWagonCarnivour(Animal animalrd)
+        {
+            if(CheckCarnivour() == false)
+            {
+                if (CheckSizeHerbivour(animalrd) == true)
                 {
-                    if (CheckSizeCarnivour(animalrd) == false)
+                    if (Wagonroom + animalrd.Size <= 10)
                     {
-                        return false;
-                    }
-                    else if (CheckSizeCarnivour(animalrd) == true)
-                    {
-                        if (Wagonroom + animalrd.Size <= 10)
-                        {
-                            Wagonroom += animalrd.Size;
-                            Animals.Add(animalrd);
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                        Wagonroom += animalrd.Size;
+                        Animals.Add(animalrd);
+                        return true;
                     }
                 }
             }
+            return false;
+        }
 
-          return true;
+        public bool WagonAdd(Animal animalrd)
+        {
+            if(animalrd.Type == (int)Food.Carnivour)
+            {
+                if(AddWagonCarnivour(animalrd) == true)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (AddWagonCarnivour(animalrd) == true)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public override string ToString()

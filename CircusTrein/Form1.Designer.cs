@@ -125,6 +125,7 @@
             this.AnimalAdd.TabIndex = 7;
             this.AnimalAdd.Text = "Add";
             this.AnimalAdd.UseVisualStyleBackColor = true;
+            this.AnimalAdd.Click += new System.EventHandler(this.AnimalAdd_Click);
             // 
             // label1
             // 

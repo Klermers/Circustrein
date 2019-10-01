@@ -16,7 +16,7 @@ namespace CircusTrein
         Animal animal;
         string name;
         int size;
-        string type;
+        int type;
 
         public Form1()
         {
@@ -47,11 +47,11 @@ namespace CircusTrein
 
             if(Herbivour.Checked == true)
             {
-                type = "Herbivour";
+                type = 1;
             }
             else if(Carnivour.Checked == true)
             {
-                type = "Carnivour";
+                type = 2;
             }
             else
             {
@@ -61,5 +61,9 @@ namespace CircusTrein
             animal = new Animal(name,size,type);
         }
 
+        private void AnimalAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
