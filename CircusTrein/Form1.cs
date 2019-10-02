@@ -59,7 +59,7 @@ namespace CircusTrein
             }
             else
             {
-                MessageBox.Show("Size isn't checked").;
+                MessageBox.Show("Size isn't checked");
                 return null;
             }
 

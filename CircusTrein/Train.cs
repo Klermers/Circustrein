@@ -27,6 +27,7 @@ namespace CircusTrein
 
         public string TrainWagonCycleAdd(Animal animalrd)
         {
+            wagonadd = new Wagon();
             int y = 1;
             int i;
 
@@ -46,7 +47,7 @@ namespace CircusTrein
             return string.Format("Animal added to {0}", wagons[i-1].ToString());
         }
 
-        public string TrainWagoncycle(Animal animalrd)
+       /* public string TrainWagoncycle(Animal animalrd)
         {
             foreach(Wagon wagon in wagons)
             {
@@ -64,6 +65,7 @@ namespace CircusTrein
 
             return string.Format("Animal added to {0}", wagonnumb);
         }
+        */
 
         public List<Animal> Wagonanimals(int cycle)
         {
