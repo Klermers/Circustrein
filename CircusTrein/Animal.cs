@@ -37,5 +37,10 @@ namespace CircusTrein
             get { return this.type; }
             set { this.type = value; }
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

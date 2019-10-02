@@ -153,6 +153,7 @@
             this.PrevWagon.TabIndex = 10;
             this.PrevWagon.Text = "<<Prev";
             this.PrevWagon.UseVisualStyleBackColor = true;
+            this.PrevWagon.Click += new System.EventHandler(this.PrevWagon_Click);
             // 
             // NextWagon
             // 
@@ -162,6 +163,7 @@
             this.NextWagon.TabIndex = 11;
             this.NextWagon.Text = "Next>>";
             this.NextWagon.UseVisualStyleBackColor = true;
+            this.NextWagon.Click += new System.EventHandler(this.NextWagon_Click);
             // 
             // groupBox1
             // 

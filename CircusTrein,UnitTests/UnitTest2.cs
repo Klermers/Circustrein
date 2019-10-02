@@ -17,7 +17,7 @@ namespace CircusTrein_UnitTests
 
             //act
 
-            var result = train.TrainWagonCycle(animalrd);
+            var result = train.TrainWagonCycleAdd(animalrd);
 
             //assert
 
