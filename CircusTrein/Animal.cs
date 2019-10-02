@@ -40,7 +40,7 @@ namespace CircusTrein
 
         public override string ToString()
         {
-            return Name;
+            return Name + " " + size + " " + type;
         }
     }
 }

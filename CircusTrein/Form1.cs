@@ -20,7 +20,6 @@ namespace CircusTrein
         {
             train = new Train();
             InitializeComponent();
-            AddToListbox1();
         }
 
         private void AnimalAdd_Click(object sender, EventArgs e)
@@ -60,7 +59,7 @@ namespace CircusTrein
             }
             else
             {
-                MessageBox.Show("Size isn't checked");
+                MessageBox.Show("Size isn't checked").;
                 return null;
             }
 
@@ -83,14 +82,28 @@ namespace CircusTrein
 
         private void NextWagon_Click(object sender, EventArgs e)
         {
-            cycle++;
-            AddToListbox1();
+            if (cycle < train.Wagons.Count)
+            {
+                cycle++;
+                AddToListbox1();
+            }
+            else
+            {
+                MessageBox.Show("There a no more wagons.");
+            }
         }
 
         private void PrevWagon_Click(object sender, EventArgs e)
         {
-            cycle--;
-            AddToListbox1();
+            if(cycle >= 1)
+            {
+                cycle--;
+                AddToListbox1();
+            }
+            else
+            {
+                MessageBox.Show("This is the first wagon");
+            }
         }
 
         public void AddToListbox1()
