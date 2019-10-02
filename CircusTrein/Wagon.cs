@@ -10,7 +10,7 @@ namespace CircusTrein
     {
         private int currentWagonNumb;
         private static int Wagoncycle = 1;
-        private int Wagonroom = 10;
+        private int Wagonroom = 0;
         private List<Animal> animals = new List<Animal>();
         public enum Food { Herbivour = 1, Carnivour = 2 }
 

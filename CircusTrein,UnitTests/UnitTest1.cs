@@ -41,8 +41,8 @@ namespace CircusTrein_UnitTests
         {
             //Arange
             Wagon wagon = new Wagon();
-            Animal animal = new Animal("Lion", 3, 1);
-            Animal animal2 = new Animal("Lion", 1, 1);
+            Animal animal = new Animal("Zebra", 3, 1);
+            Animal animal2 = new Animal("Zebra", 1, 1);
             List<Animal> animals = new List<Animal>();
 
             //Act
@@ -59,7 +59,7 @@ namespace CircusTrein_UnitTests
             //Arange
             Wagon wagon = new Wagon();
             Animal carnanimal = new Animal("Lion", 1, 2);
-            Animal animal2 = new Animal("Lion", 3, 1);
+            Animal animal2 = new Animal("Zebra", 3, 1);
             List<Animal> animals = new List<Animal>();
 
             //Act
@@ -76,7 +76,7 @@ namespace CircusTrein_UnitTests
             //Arange
             Wagon wagon = new Wagon();
             Animal carnanimal = new Animal("Lion", 1, 2);
-            Animal checkherb = new Animal("Lion", 3, 1);
+            Animal checkherb = new Animal("Zebra", 3, 1);
             List<Animal> animals = new List<Animal>();
 
             //Act
@@ -94,7 +94,7 @@ namespace CircusTrein_UnitTests
             //Arange
             Wagon wagon = new Wagon();
             Animal carnanimal = new Animal("Lion", 1, 2);
-            Animal checkherb = new Animal("Lion", 3, 1);
+            Animal checkherb = new Animal("Zebra", 3, 1);
             List<Animal> animals = new List<Animal>();
 
             //Act
@@ -110,28 +110,53 @@ namespace CircusTrein_UnitTests
         public void AddWagonHerbivour_CheckSizeWagon_ReturnTrue()
         {
             //Arange
-
+            Wagon wagon = new Wagon();
+            Animal checkherb = new Animal("Zebra", 3, 1);
             //Act
+            var result =  wagon.AddWagonHerbivore(checkherb);
 
             //Assert
+            Assert.IsTrue(result);
         }
-
+        [TestMethod]
         public void AddWagonHerbivour_CheckSizeWagon_ReturnFalse()
         {
             //Arange
-
+            Wagon wagon = new Wagon();
+            Animal checkherb = new Animal("Zebra", 3, 1);
             //Act
+            wagon.AddWagonHerbivore(checkherb);
+            wagon.AddWagonHerbivore(checkherb);
+            wagon.AddWagonHerbivore(checkherb);
+            var result = wagon.AddWagonHerbivore(checkherb);
 
             //Assert
+            Assert.IsFalse(result);
         }
-
+        [TestMethod]
+        public void AddWagonCarnivour_CheckSizeWagon_ReturnTrue()
+        {
+            //Arange
+            Wagon wagon = new Wagon();
+            Animal checkcarn = new Animal("Lion", 3, 1);
+            //Act
+            var result = wagon.AddWagonCarnivour(checkcarn);
+            //Assert
+            Assert.IsTrue(result);
+        }
+        [TestMethod]
         public void AddWagonCarnivour_CheckSizeWagon_ReturnFalse()
         {
             //Arange
-
+            Wagon wagon = new Wagon();
+            Animal checkcarn = new Animal("Lion", 3, 1);
             //Act
-
+            wagon.AddWagonCarnivour(checkcarn);
+            wagon.AddWagonCarnivour(checkcarn);
+            wagon.AddWagonCarnivour(checkcarn);
+            var result = wagon.AddWagonCarnivour(checkcarn);
             //Assert
+            Assert.IsFalse(result);
         }
     }
 }
