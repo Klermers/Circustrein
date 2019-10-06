@@ -17,7 +17,7 @@ namespace CircusTrein
         public Wagon()
         {
             currentWagonNumb= Wagoncycle;
-            Wagoncycle++;
+            Wagoncycle +=1;
         }
         public List<Animal> Animals
         {
@@ -73,17 +73,15 @@ namespace CircusTrein
                     if (Wagonroom + animalrd.Size <= 10)
                     {
                         Wagonroom += animalrd.Size;
-                        Animals.Add(animalrd);
                         return true;
                     }
                 }
             }
-            else
+            else if (CheckCarnivour() == false)
             {
                 if (Wagonroom + animalrd.Size <= 10)
                 {
                     Wagonroom += animalrd.Size;
-                    Animals.Add(animalrd);
                     return true;
                 }
             }
@@ -99,7 +97,6 @@ namespace CircusTrein
                     if (Wagonroom + animalrd.Size <= 10)
                     {
                         Wagonroom += animalrd.Size;
-                        Animals.Add(animalrd);
                         return true;
                     }
                 }
@@ -113,13 +110,15 @@ namespace CircusTrein
             {
                 if(AddWagonCarnivour(animalrd) == true)
                 {
+                    Animals.Add(animalrd);
                     return true;
                 }
             }
-            else
+            else if (animalrd.Type == (int)Food.Herbivour)
             {
-                if (AddWagonCarnivour(animalrd) == true)
+                if (AddWagonHerbivore(animalrd) == true)
                 {
+                    Animals.Add(animalrd);
                     return true;
                 }
             }

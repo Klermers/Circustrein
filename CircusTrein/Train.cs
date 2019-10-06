@@ -10,7 +10,7 @@ namespace CircusTrein
     {
         List<Wagon> wagons;
         Wagon wagonadd;
-                    string wagonnumb;
+        //  string wagonnumb;
 
 
         public List<Wagon> Wagons
@@ -47,7 +47,12 @@ namespace CircusTrein
             return string.Format("Animal added to {0}", wagons[i-1].ToString());
         }
 
-       /* public string TrainWagoncycle(Animal animalrd)
+        public List<Animal> Wagonanimals(int cycle)
+        {
+            return wagons[cycle].Animals;
+        }
+
+         /* public string TrainWagoncycle(Animal animalrd)
         {
             foreach(Wagon wagon in wagons)
             {
@@ -66,10 +71,5 @@ namespace CircusTrein
             return string.Format("Animal added to {0}", wagonnumb);
         }
         */
-
-        public List<Animal> Wagonanimals(int cycle)
-        {
-            return wagons[cycle].Animals;
-        }
     }
 }

@@ -108,6 +108,7 @@ namespace CircusTrein
 
         public void AddToListbox1()
         {
+            listBox1.Items.Clear();
             foreach (var animal in train.Wagonanimals(cycle))
             {
                 listBox1.Items.Add(animal.ToString());
