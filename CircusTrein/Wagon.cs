@@ -41,7 +41,7 @@ namespace CircusTrein
         {
             foreach(var animal in animals)
             {
-                if(animal.Size < checkcarn.Size)
+                if(animal.Size <= checkcarn.Size)
                 {
                     return false;
                 }

@@ -37,7 +37,7 @@ namespace CircusTrein
                 {
                     wagons[i].Animals.Add(animalrd);
                 }
-                else
+                else if (wagons[i].WagonAdd(animalrd) == false)
                 {
                     y++;
                     wagons.Add(wagonadd);
