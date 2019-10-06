@@ -110,7 +110,6 @@ namespace CircusTrein
             {
                 if(AddWagonCarnivour(animalrd) == true)
                 {
-                    Animals.Add(animalrd);
                     return true;
                 }
             }
@@ -118,7 +117,6 @@ namespace CircusTrein
             {
                 if (AddWagonHerbivore(animalrd) == true)
                 {
-                    Animals.Add(animalrd);
                     return true;
                 }
             }
